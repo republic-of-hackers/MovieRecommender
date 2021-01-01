@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>HomePage</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="panel panel-default" style="text-align:center;background-color: #347ab6;color:white;">
+  <div class="panel-body">	<h1>Movie Recommender </h1></div>
+</div>
+
+<div style="text-align:center;margin-left:10%;margin-right:10%;" class="panel panel-primary">
+  <div class="panel-heading"><h3>Input movie you like & one the bases of that you would be recommended movies:</h3></div>
+  <div class="panel-body">
+	
+	<br><br>
+	{% block content %}
+ <form method="POST" action="recommend/">
+ 	{% csrf_token %}
+  
+  <select style="margin-left: auto;margin-right: auto;width:30%;" class="form-control" name="movie1" >
+    {% for name in title %}
+    <option style=" margin-left: auto;margin-right: auto;width:30%;">{{ name }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <br><br><br><br>
+  
+  <input class="btn btn-primary" style="vertical-align:middle" type="submit" value="Recommend">
+
+ </form>
+ 	{% endblock content %}
+
+  </div>
+</div>
+
+</body>
+</html>
